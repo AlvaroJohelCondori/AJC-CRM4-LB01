@@ -1,0 +1,886 @@
+{
+	"info": {
+		"_postman_id": "e024fb8c-30f4-45f5-b794-5d6b549bb8bc",
+		"name": "CMR4-LB01-HANSACRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "documents",
+			"item": []
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "account-get-all/{account_id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//no funciona\r\n{\r\n    \"module\": \"Accounts\",\r\n    \"idmodule\": \"8fb420a9-7f74-b459-4d71-62e2b8752d8c\",\r\n    \"id_user\": \"c9bc1ad5-f604-6ed1-e65d-6272d1c51e8a\",\r\n    \"relatemodule\": [\r\n        {\r\n            \"nameModule\": \"EmailAddress\",\r\n            \"emails\": [\r\n                {\r\n                \"id\": \"\",\r\n                \"email\": \"sdfsdfasdf@correo.com\",\r\n                \"principal\": \"1\"\r\n            },\r\n            {\r\n                \"id\": \"\",\r\n                \"email\": \"lololdo@correo.com\",\r\n                \"principal\": \"0\"\r\n            }\r\n            ]\r\n        },\r\n        {\r\n            \"nameModule\": \"pho_phones\",\r\n            \"phones\": [\r\n                {\r\n                    \"phone\": \"13132352\",\r\n                    \"country\": \"BO\",\r\n                    \"country_code\": \"+591\",\r\n                    \"whatsapp\": \"0\",\r\n                    \"principal\": \"1\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/account-get-all/{account_id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-get-all",
+								"{account_id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "account-get-all/{account_id}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-lb4}}/account-get-all/{account_id}",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"account-get-all",
+										"{account_id}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "account-new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"info_account\": {\r\n        \"detail_account\": {\r\n            \"tipo_documento_c\": \"01\",\r\n            \"account_type\": \"Customer\",\r\n            \"regimen_tributario_c\": \"01\",\r\n            \"billing_address_country\": \"BO\",\r\n            \"tipocuenta_c\": \"Empresa\",\r\n            \"name\": \"empresa PRUEBA\",\r\n            \"nombre_comercial_c\": \"EmP SRL\",\r\n            \"nit_ci_c\": \"532432532\",\r\n            \"celular_c\": \"624323324 - 75325324\",\r\n            \"industry\": \"C0\",\r\n            \"subindustry_c\": \"C0_C44\",\r\n            \"billing_address_state_list_c\": \"La Paz\",\r\n            \"billing_address_city\": \"El Alto\",\r\n            \"description\": \"pruebas\"\r\n        },\r\n        \"direction_account\": {\r\n            \"billing_address_street\": \"Av. Litoral\",\r\n            \"billing_address_state\": \"La Paz\",            \r\n            \"shipping_address_street\": \"La Paz\",\r\n            \"shipping_address_city\": \"El Alto\",\r\n            \"shipping_address_state\": \"La Paz\",\r\n            \"shipping_address_country\": \"BO\",\r\n            \"address_street_generated_c\": \"Av. Litoral_gnrtd\",\r\n            \"jjwg_maps_lat_c\": \"0\",\r\n            \"jjwg_maps_lng_c\": \"0\",\r\n            \"jjwg_maps_address_c\": \"Av. Litoral\"\r\n        }\r\n    },\r\n    \"phone_email_account\": {\r\n        \"emails\": [\r\n            {\r\n                \"primary_address\": true,\r\n                \"email_address\": \"test@example.com\"\r\n            },\r\n            {\r\n                \"primary_address\": false,\r\n                \"email_address\": \"test2@example.com\"\r\n            }\r\n        ],\r\n        \"phones\": [\r\n            {                         \r\n                \"phone\": \"624323324\",\r\n                \"country_code\": \"+591\",\r\n                \"country\": \"BO\",\r\n                \"principal\": \"1\",\r\n                \"whatsapp\": \"1\"\r\n            },\r\n            {\r\n                \"phone\": \"75325324\",\r\n                \"country_code\": \"+591\",\r\n                \"country\": \"BO\",\r\n                \"principal\": \"0\",\r\n                \"whatsapp\": \"1\"\r\n            }\r\n        ]\r\n    },\r\n    \"assigned_users\": [\r\n        {\r\n            \"assigned_user_id\": \"0051F8EE-3D26-4604-B045-DAF75B96F72\",\r\n            \"principal\": \"yes\",\r\n            \"iddivision_c\": \"03\",\r\n            \"idamercado_c\": \"03_02\",\r\n            \"idgrupocliente_c\": \"31\",\r\n            \"idsector_c\": \"16\",\r\n            \"idregional_c\": \"02\",\r\n            \"idcanalvta_c\": \"03_02_01\"\r\n        },\r\n        {\r\n            \"assigned_user_id\": \"00EBB9F1-9FED-4C5B-9ECB-3F0C4566982\",\r\n            \"principal\": \"yes\",\r\n            \"iddivision_c\": \"03\",\r\n            \"idamercado_c\": \"03_02\",\r\n            \"idgrupocliente_c\": \"31\",\r\n            \"idsector_c\": \"16\",\r\n            \"idregional_c\": \"02\",\r\n            \"idcanalvta_c\": \"03_02_01\"\r\n        }\r\n    ],\r\n    \"comments\": {\r\n        \"module\": \"Accounts\",\r\n        \"idmodule\": null,\r\n        \"visualizacion_c\": \"interno\",\r\n        \"description\": \"pruebas\",\r\n        \"relevance\": \"medium\",\r\n        \"modulecoments\": \"HANPC_Comentarios\"\r\n    },\r\n    \"related_accounts\": [\r\n        {\r\n            \"relatedmodule\": \"Accounts\",\r\n            \"idmodulo\": \"000786B9-BA41-4810-AD71-0AF6EEF25F11\"\r\n        },\r\n        {\r\n            \"relatedmodule\": \"Accounts\",\r\n            \"idmodulo\": \"000A0A46-6EFE-4FF6-AC86-D8B49B104005\"\r\n        },\r\n        {\r\n            \"relatedmodule\": \"Accounts\",\r\n            \"idmodulo\": \"000A69EE-3990-4997-AE96-66AA0B4FB727\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/account-new",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-new"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "account-new",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"info_account\": {\r\n        \"detail_account\": {\r\n            \"tipo_documento_c\": \"01\",\r\n            \"account_type\": \"Customer\",\r\n            \"regimen_tributario_c\": \"01\",\r\n            \"billing_address_country\": \"BO\",\r\n            \"tipocuenta_c\": \"Empresa\",\r\n            \"name\": \"empresa PRUEBA\",\r\n            \"nombre_comercial_c\": \"EmP SRL\",\r\n            \"nit_ci_c\": \"532432532\",\r\n            \"celular_c\": \"624323324 - 75325324\",\r\n            \"industry\": \"C0\",\r\n            \"subindustry_c\": \"C0_C44\",\r\n            \"billing_address_state_list_c\": \"La Paz\",\r\n            \"billing_address_city\": \"El Alto\",\r\n            \"description\": \"pruebas\"\r\n        },\r\n        \"direction_account\": {\r\n            \"billing_address_street\": \"Av. Litoral\",\r\n            \"billing_address_state\": \"La Paz\",            \r\n            \"shipping_address_street\": \"La Paz\",\r\n            \"shipping_address_city\": \"El Alto\",\r\n            \"shipping_address_state\": \"La Paz\",\r\n            \"shipping_address_country\": \"BO\",\r\n            \"address_street_generated_c\": \"Av. Litoral_gnrtd\",\r\n            \"jjwg_maps_lat_c\": \"0\",\r\n            \"jjwg_maps_lng_c\": \"0\",\r\n            \"jjwg_maps_address_c\": \"Av. Litoral\"\r\n        }\r\n    },\r\n    \"phone_email_account\": {\r\n        \"emails\": [\r\n            {\r\n                \"primary_address\": true,\r\n                \"email_address\": \"test@example.com\"\r\n            },\r\n            {\r\n                \"primary_address\": false,\r\n                \"email_address\": \"test2@example.com\"\r\n            }\r\n        ],\r\n        \"phones\": [\r\n            {                         \r\n                \"phone\": \"624323324\",\r\n                \"country_code\": \"+591\",\r\n                \"country\": \"BO\",\r\n                \"principal\": \"1\",\r\n                \"whatsapp\": \"1\"\r\n            },\r\n            {\r\n                \"phone\": \"75325324\",\r\n                \"country_code\": \"+591\",\r\n                \"country\": \"BO\",\r\n                \"principal\": \"0\",\r\n                \"whatsapp\": \"1\"\r\n            }\r\n        ]\r\n    },\r\n    \"assigned_users\": [\r\n        {\r\n            \"assigned_user_id\": \"0051F8EE-3D26-4604-B045-DAF75B96F72\",\r\n            \"principal\": \"yes\",\r\n            \"iddivision_c\": \"03\",\r\n            \"idamercado_c\": \"03_02\",\r\n            \"idgrupocliente_c\": \"31\",\r\n            \"idsector_c\": \"16\",\r\n            \"idregional_c\": \"02\",\r\n            \"idcanalvta_c\": \"03_02_01\"\r\n        },\r\n        {\r\n            \"assigned_user_id\": \"00EBB9F1-9FED-4C5B-9ECB-3F0C4566982\",\r\n            \"principal\": \"yes\",\r\n            \"iddivision_c\": \"03\",\r\n            \"idamercado_c\": \"03_02\",\r\n            \"idgrupocliente_c\": \"31\",\r\n            \"idsector_c\": \"16\",\r\n            \"idregional_c\": \"02\",\r\n            \"idcanalvta_c\": \"03_02_01\"\r\n        }\r\n    ],\r\n    \"comments\": {\r\n        \"module\": \"Accounts\",\r\n        \"idmodule\": null,\r\n        \"visualizacion_c\": \"interno\",\r\n        \"description\": \"pruebas\",\r\n        \"relevance\": \"medium\",\r\n        \"modulecoments\": \"HANPC_Comentarios\"\r\n    },\r\n    \"related_accounts\": [\r\n        {\r\n            \"relatedmodule\": \"Accounts\",\r\n            \"idmodulo\": \"000786B9-BA41-4810-AD71-0AF6EEF25F11\"\r\n        },\r\n        {\r\n            \"relatedmodule\": \"Accounts\",\r\n            \"idmodulo\": \"000A0A46-6EFE-4FF6-AC86-D8B49B104005\"\r\n        },\r\n        {\r\n            \"relatedmodule\": \"Accounts\",\r\n            \"idmodulo\": \"000A69EE-3990-4997-AE96-66AA0B4FB727\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-lb4}}/account-new",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"account-new"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Aug 2022 08:08:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "812"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resp\": {\n        \"info_account\": {\n            \"detail_account\": {\n                \"id\": \"a3fc2f64-62c4-c89b-b048-630339deaac1\",\n                \"account_type\": \"Customer\",\n                \"billing_address_city\": \"El Alto\",\n                \"billing_address_country\": \"BO\",\n                \"billing_address_state_list_c\": \"La Paz\",\n                \"industry\": \"C0\",\n                \"name\": \"empresa PRUEBA\",\n                \"names_c\": \"\",\n                \"lastname_c\": \"\",\n                \"nit_ci_c\": \"532432532\",\n                \"regimen_tributario_c\": \"01\",\n                \"subindustry_c\": \"C0_C44\",\n                \"tipo_documento_c\": \"01\",\n                \"tipocuenta_c\": \"Empresa\",\n                \"idcuentasap_c\": \"\"\n            },\n            \"direction_account\": {\n                \"billing_address_street\": \"Av. Litoral\",\n                \"billing_address_state\": \"La Paz\",\n                \"shipping_address_street\": \"La Paz\",\n                \"shipping_address_city\": \"El Alto\",\n                \"shipping_address_state\": \"La Paz\",\n                \"shipping_address_country\": \"BO\",\n                \"address_street_generated_c\": \"Av. Litoral_gnrtd\",\n                \"jjwg_maps_lat_c\": 0,\n                \"jjwg_maps_lng_c\": 0,\n                \"jjwg_maps_address_c\": \"Av. Litoral\"\n            }\n        },\n        \"phone_email_account\": {}\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "account-update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"resp\": {\r\n        \"info_account\": {\r\n            \"detail_account\": {\r\n                \"id\": \"9a782b67-3117-07b6-fb10-62e9d08851ce\",\r\n                \"account_type\": \"Analyst\",\r\n                \"billing_address_city\": \"Analyst\",\r\n                \"billing_address_country\": \"BO\",\r\n                \"billing_address_state_list_c\": \"La Paz\",\r\n                \"industry\": \"E0\",\r\n                \"name\": \"Juan Rafael\",\r\n                \"nit_ci_c\": \"75463456534\",\r\n                \"regimen_tributario_c\": \"01\",\r\n                \"subindustry_c\": \"E0_E06\",\r\n                \"tipo_documento_c\": \"02\",\r\n                \"tipocuenta_c\": \"Empresa\"\r\n            },\r\n            \"direction_account\": {\r\n                \"billing_address_street\": \"Zn. 12 de octubre_gnrtd\"\r\n            }\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/account-update/7101b95b-9726-4b44-794d-62fbac2f94fd (revisar)",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-update",
+								"7101b95b-9726-4b44-794d-62fbac2f94fd (revisar)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accounts_related/{id}",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//no funciona\r\n{\r\n    \"module\": \"Accounts\",\r\n    \"idmodule\": \"8fb420a9-7f74-b459-4d71-62e2b8752d8c\",\r\n    \"id_user\": \"c9bc1ad5-f604-6ed1-e65d-6272d1c51e8a\",\r\n    \"relatemodule\": [\r\n        {\r\n            \"nameModule\": \"EmailAddress\",\r\n            \"emails\": [\r\n                {\r\n                \"id\": \"\",\r\n                \"email\": \"sdfsdfasdf@correo.com\",\r\n                \"principal\": \"1\"\r\n            },\r\n            {\r\n                \"id\": \"\",\r\n                \"email\": \"lololdo@correo.com\",\r\n                \"principal\": \"0\"\r\n            }\r\n            ]\r\n        },\r\n        {\r\n            \"nameModule\": \"pho_phones\",\r\n            \"phones\": [\r\n                {\r\n                    \"phone\": \"13132352\",\r\n                    \"country\": \"BO\",\r\n                    \"country_code\": \"+591\",\r\n                    \"whatsapp\": \"0\",\r\n                    \"principal\": \"1\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/accounts_related/{id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"accounts_related",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-campaigns/{account_id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/get-campaigns/{account_id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"get-campaigns",
+								"{account_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account_get_contacts/{id_account}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/account_get_contacts/{id_account}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account_get_contacts",
+								"{id_account}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account_get_documents/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/account_get_documents/{id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account_get_documents",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accounts-getAccount/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/accounts-getAccount/{id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"accounts-getAccount",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "accounts-getAccount/{id}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-lb4}}/accounts-getAccount/d610293b-0af9-1fcd-be95-5a98122fafc9",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"accounts-getAccount",
+										"d610293b-0af9-1fcd-be95-5a98122fafc9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Aug 2022 08:12:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "accounts-getHistoryChanges/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/accounts-getHistoryChanges/{id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"accounts-getHistoryChanges",
+								"{id}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "accounts-getHistoryChanges/{id}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-lb4}}/accounts-getHistoryChanges/d610293b-0af9-1fcd-be95-5a98122fafc9",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"accounts-getHistoryChanges",
+										"d610293b-0af9-1fcd-be95-5a98122fafc9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Aug 2022 08:11:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "account-verify-ci_nit/{search}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/account-verify-ci_nit/{search}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-verify-ci_nit",
+								"{search}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "account-verify-ci_nit/{search}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url-lb4}}/account-verify-ci_nit/6786456",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"account-verify-ci_nit",
+										"6786456"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Aug 2022 08:10:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"nit_ci\": \"6786456\",\n            \"name\": \"Lic. Juan Rubin De Celis\",\n            \"id\": \"00040B75-AFEC-4169-B5D1-B2788E41A535\",\n            \"tipo_cuenta\": \"Privada\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "contacts",
+			"item": [
+				{
+					"name": "contact-get-all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/contact-get-all/{contact_id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"contact-get-all",
+								"{contact_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact-new",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"info_contact\": {\r\n      \"detail_contact\": {        \r\n        \"description\": \"chapaco alsao\"\r\n      },\r\n      \"direction_contact\": {\r\n          \"primary_address_street\": \"\"\r\n      }\r\n  },\r\n  \"phone_email_contact\": {\r\n      \"emails\": [],\r\n      \"phones\": []\r\n  },\r\n  \"comments\": {\r\n    \"module\": \"contacts\",\r\n    \"idmodule\": \"\",\r\n    \"visualizacion_c\": \"interno\",\r\n    \"description\": \"Kevin y Anahi\",\r\n    \"relevance\": \"medium\",\r\n    \"modulecoments\": \"HANPC_Comentarios\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/contact-new",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"contact-new"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "contact-new",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"info_contact\": {\r\n      \"detail_contact\": {        \r\n        \"description\": \"prueba contacto\"\r\n      },\r\n      \"direction_contact\": {\r\n          \"primary_address_street\": \"\"\r\n      }\r\n  },\r\n  \"phone_email_contact\": {\r\n      \"emails\": [],\r\n      \"phones\": []\r\n  },\r\n  \"comments\": {\r\n    \"module\": \"contacts\",\r\n    \"idmodule\": \"\",\r\n    \"visualizacion_c\": \"interno\",\r\n    \"description\": \"Kevin y Anahi\",\r\n    \"relevance\": \"medium\",\r\n    \"modulecoments\": \"HANPC_Comentarios\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url-lb4}}/contact-new",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"contact-new"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Aug 2022 08:18:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "315"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resp\": {\n        \"status\": 200,\n        \"info_contact\": {\n            \"detail_contact\": {\n                \"id\": \"1d534b5a-64d9-c407-b11d-63033b5accc0\",\n                \"name\": \" \",\n                \"subindustry_c\": \"$vardef.default\"\n            },\n            \"direction_contact\": {\n                \"address_street_generated_c\": \"\",\n                \"jjwg_maps_lat_c\": 0,\n                \"jjwg_maps_lng_c\": 0,\n                \"jjwg_maps_address_c\": \"\"\n            }\n        },\n        \"phone_email_contact\": {\n            \"emails\": [],\n            \"phones\": []\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "contact-update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"info_contact\": {\r\n      \"detail_contact\": {        \r\n        \"description\": \"chapaco alsao\"\r\n      },\r\n      \"direction_contact\": {\r\n          \"primary_address_street\": \"\"\r\n      }\r\n  },\r\n  \"phone_email_contact\": {\r\n      \"emails\": [],\r\n      \"phones\": []\r\n  },\r\n  \"comments\": {\r\n    \"module\": \"contacts\",\r\n    \"idmodule\": \"\",\r\n    \"visualizacion_c\": \"interno\",\r\n    \"description\": \"Kevin y Anahi\",\r\n    \"relevance\": \"medium\",\r\n    \"modulecoments\": \"HANPC_Comentarios\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/contact-update/{contact_id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"contact-update",
+								"{contact_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact-delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/contact-delete/{contact_id}/{login_user}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"contact-delete",
+								"{contact_id}",
+								"{login_user}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "contact-delete",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url-lb4}}/contact-delete/14025c67-4c53-a1db-57fc-5d56b1c530dd/4e4727fe-6921-3132-8057-62e2a387675b",
+									"host": [
+										"{{url-lb4}}"
+									],
+									"path": [
+										"contact-delete",
+										"14025c67-4c53-a1db-57fc-5d56b1c530dd",
+										"4e4727fe-6921-3132-8057-62e2a387675b"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 22 Aug 2022 08:19:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"resp\": {\n        \"status\": 200,\n        \"messaje\": \"contact DELETE success\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "comments",
+			"item": [
+				{
+					"name": "account-DeleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comments\": {\r\n        \"id\": \"11190d84-6ec9-9f9f-3a02-62e3d5624a77\",\r\n        \"module\": \"Accounts\",\r\n        \"idmodule\":\"51cd0a61-7b64-e7fc-e929-62e3d515bb33\",\r\n        \"modulecoments\": \"HANPC_Comentarios\",\r\n        \"id_user\":\"37551E8D-8338-4810-AD0E-8CE4C33D131\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/account-DeleteComment",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-DeleteComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account-newComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comments\": {\r\n    \"id\": \"11190d84-6ec9-9f9f-3a02-62e3d5624a77\",\r\n    \"module\": \"Accounts\",\r\n    \"idmodule\":\"51cd0a61-7b64-e7fc-e929-62e3d515bb33\",\r\n    \"visualizacion_c\": \"interno\",\r\n    \"description\": \"bla bla bla\",\r\n    \"relevance\": \"medium\",\r\n    \"modulecoments\": \"HANPC_Comentarios\",\r\n    \"id_user\":\"37551E8D-8338-4810-AD0E-8CE4C33D131\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/account-newComment",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-newComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account-UpdateComment",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comments\": {\r\n    \"id\": \"11190d84-6ec9-9f9f-3a02-62e3d5624a77\",\r\n    \"module\": \"Accounts\",\r\n    \"idmodule\":\"51cd0a61-7b64-e7fc-e929-62e3d515bb33\",\r\n    \"visualizacion_c\": \"interno\",\r\n    \"description\": \"bla bla bla\",\r\n    \"relevance\": \"medium\",\r\n    \"modulecoments\": \"HANPC_Comentarios\",\r\n    \"id_user\":\"37551E8D-8338-4810-AD0E-8CE4C33D131\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/account-UpdateComment",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"account-UpdateComment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accounts-getComments/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-lb4}}/accounts-getComments/{id}",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"accounts-getComments",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "phonesAndEmails",
+			"item": [
+				{
+					"name": "email-phone-update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//no funciona\r\n{\r\n    \"module\": \"Accounts\",\r\n    \"idmodule\": \"8fb420a9-7f74-b459-4d71-62e2b8752d8c\",\r\n    \"id_user\": \"c9bc1ad5-f604-6ed1-e65d-6272d1c51e8a\",\r\n    \"relatemodule\": [\r\n        {\r\n            \"nameModule\": \"EmailAddress\",\r\n            \"emails\": [\r\n                {\r\n                \"id\": \"\",\r\n                \"email\": \"sdfsdfasdf@correo.com\",\r\n                \"principal\": \"1\"\r\n            },\r\n            {\r\n                \"id\": \"\",\r\n                \"email\": \"lololdo@correo.com\",\r\n                \"principal\": \"0\"\r\n            }\r\n            ]\r\n        },\r\n        {\r\n            \"nameModule\": \"pho_phones\",\r\n            \"phones\": [\r\n                {\r\n                    \"phone\": \"13132352\",\r\n                    \"country\": \"BO\",\r\n                    \"country_code\": \"+591\",\r\n                    \"whatsapp\": \"0\",\r\n                    \"principal\": \"1\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url-lb4}}/email-phone-update",
+							"host": [
+								"{{url-lb4}}"
+							],
+							"path": [
+								"email-phone-update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account-verify-emails_phones/{search}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "account-verify-emails_phones/{search}",
+							"host": [
+								"account-verify-emails_phones"
+							],
+							"path": [
+								"{search}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email-phone-create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "//no funciona\r\n{\r\n  \"phone_email_account\": {\r\n    \"emails\": [\r\n        {\r\n            \"primary_address\": true,\r\n            \"email_address\": \"test@example.com\"\r\n        },\r\n        {\r\n            \"primary_address\": false,\r\n            \"email_address\": \"test2@example.com\"\r\n        }\r\n    ],\r\n    \"phones\": [\r\n        {\r\n            \"phone\": \"624323324\",\r\n            \"country_code\": \"+591\",\r\n            \"country\": \"BO\",\r\n            \"principal\": \"1\",\r\n            \"whatsapp\": \"1\"\r\n        },\r\n        {\r\n            \"phone\": \"75325324\",\r\n            \"country_code\": \"+591\",\r\n            \"country\": \"BO\",\r\n            \"principal\": \"0\",\r\n            \"whatsapp\": \"1\"\r\n        }\r\n    ]\r\n}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "email-phone-crete",
+							"host": [
+								"email-phone-crete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
